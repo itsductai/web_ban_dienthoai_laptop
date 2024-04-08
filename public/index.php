@@ -5,9 +5,9 @@ include_once __DIR__ . '/../src/partials/header.php';
 ?>
 <?php
 use CT275\Project\Product;
-$product = new Product($PDO);
-$products = $product->all();
 use CT275\Project\Paginator;
+$product = new Product($PDO);
+
 $limit = (isset($_GET['limit']) && is_numeric($_GET['limit'])) ? (int)$_GET['limit'] : 9;
 $page = (isset($_GET['page']) && is_numeric($_GET['page'])) ? (int)$_GET['page'] : 1;
 $paginator = new Paginator(
@@ -41,12 +41,11 @@ $pages = $paginator->getPages(length: 3);
             <div class="row">
                 <?php foreach ($products as $row) {  
                     // Xác định đường dẫn của anh
-                    $imagePath = isset($row->anh) ? 'Images/' . $row->anh : '';
-                    // Lấy các thông tin sản phẩm gom ten_san_pham, mo_ta, gia
+                    $imagePath = isset($row->anh) ? html_escape($row->anh) : '';
                     $productName = isset($row->ten_san_pham) ? html_escape($row->ten_san_pham) : '';
                     $description = isset($row->mo_ta) ? html_escape($row->mo_ta) : '';
                     $price = isset($row->gia) ? $row->gia : 0;
-
+                    
                     // Hiển thị mỗi sản phẩm trong một thẻ div.card
                     echo '
                     <div class="col-lg-4 px- mb-2">
@@ -56,19 +55,24 @@ $pages = $paginator->getPages(length: 3);
                                 <h5 class="card-title">' . $productName . '</h5>
                                 <p class="card-text">' . $description . '</p>
                                 <p class="card-text">Giá: ' . number_format($price, 0, ',', '.') . '</p>
-                                <a href="#" class="btn btn-primary">Mua hàng <i class="fa-solid fa-cart-shopping"></i></a>
+                                <form action="/cart.php" method="post">
+                                    
+                                    <input type="hidden" name="product_image" value="' . $imagePath . '">
+                                    <input type="hidden" name="product_name" value="' . $productName . '">
+                                    <input type="hidden" name="product_price" value="' . number_format($price, 0, ',', '.') . '">
+                                    <input type="submit" class="btn btn-primary" name="add_cart" value="đặt hàng">  
+                                    <input type="number" class="btn btn-outline-dark btn-sm" name="product_number" id="product_number" value="1" min="1" max="10">
+                                    
+                                </form>
                             </div>
-                        </div>
+                        </div>  
                     </div>';
+                    
 }
 ?>
+        
             </div>
-        </div>
-
-    </div>
-</div>
-<!-- Phân trang -->
-<nav class="d-flex justify-content-center">
+            <nav class="d-flex justify-content-center">
     <ul class="pagination">
         <li class="page-item<?= $paginator->getPrevPage() === false ? ' disabled' : '' ?>">
             <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=<?= $limit ?>" class="page-link">
@@ -87,17 +91,14 @@ $pages = $paginator->getPages(length: 3);
         </li>
     </ul>
 </nav>
+        </div>
+
+    </div>
+</div>
+<!-- Phân trang -->
+
 
 <?php include_once __DIR__ . '/../src/partials/footer.php' ?>
-<script>
-    // Lấy tham chiếu đến nút "Login"
-    var loginButton = document.getElementById("loginButton");
 
-    // Thêm sự kiện click cho nút "Login"
-    loginButton.addEventListener("click", function() {
-        // Chuyển hướng sang trang đăng nhập
-        window.location.href = "login.php"; // Thay 'login.html' bằng đường dẫn thích hợp của trang đăng nhập
-    });
-</script>
 </body>
 </html>
