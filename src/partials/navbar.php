@@ -1,4 +1,4 @@
-<header class="p-3 bg-danger text-white">
+<header class="p-3 text-white" style="background-color: #d70018;" >
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
@@ -13,9 +13,13 @@
                         <li><a href="category.php" class="nav-link px-2 text-white">Danh mục</a></li>
                     </ul>
                     <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                </form>
+                    <div id="search-input">
+                        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                            <input type="text" name="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                            <button type="submit" class="btn  btn-outline-light">Tìm</button>
+                        </form>
+                    </div>
+                
                 <div class="text-end">
                
                     <?php
@@ -67,13 +71,24 @@
             <?php else : ?>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Sản Phẩm</a></li>
+                    <li class="btn-group">
+                            <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                                Sản phẩm
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="phone.php">Điện thoại</a></li>
+                                <li><a class="dropdown-item" href="laptop.php">Máy tính</a></li>
+                            </ul>
+                    </li>
                     <li><a href="#" class="nav-link px-2 text-white">Đánh giá</a></li>
                 </ul>
-                <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
-                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                    <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-                </form>
+                <a href="cart.php"class="btn  btn-outline-light mr-2"><i class="fa-solid fa-cart-shopping"></i></a>  
+                <div id="search-input" >
+                        <form class="row ml-2 mr-2" method="GET" action="search.php">
+                            <input type="text" name="search" class="col-9 form-control form-control-dark mr-1" placeholder="Search..." aria-label="Search" value="<?= $search ?? ''?>">
+                            <button type="submit" class=" col-2 btn  btn-outline-light"><i class="fa-solid fa-magnifying-glass"></i></button>
+                        </form>
+                    </div>
 
                 <div class="text-end">
                     <a href="signup.php"class="btn  btn-outline-light me-2">Signup</a>

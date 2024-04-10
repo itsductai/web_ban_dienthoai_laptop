@@ -1,4 +1,4 @@
-<footer class="footer mt-auto py-3 bg-danger ">
+<footer class="footer mt-5 py-3" style="background-color:#d70018;">
         <div class="container text-center ">
             <span class=" text-white">Phone Shop &copy; 2024</span>
         </div>

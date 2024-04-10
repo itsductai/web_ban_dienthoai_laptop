@@ -52,7 +52,7 @@ if (isset($_POST['add_cart']) && ($_POST['add_cart'])) {
                 <tr class="text-center">
                     <td class="align-middle">' . ($index + 1) . '</td>
                     <td class="align-middle">' . $product[1] . '</td>
-                    <td class="align-middle"><img src="' . $product[0] . '" alt="' . $product[1] . '" class="product-image" style="width: 100px;"></td>
+                    <td class="align-middle"><img src="/Images/' . $product[0] . '" alt="' . $product[1] . '" class="product-image" style="width: 100px;"></td>
                     <td class="align-middle">' . $product[3] . '</td>
                     <td class="align-middle">' . $subtotal. '</td>
                     <td class="align-middle">

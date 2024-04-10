@@ -50,7 +50,7 @@ $pages = $paginator->getPages(length: 3);
                     echo '
                     <div class="col-lg-4 px- mb-2">
                         <div class="card" style="width: 18rem;">
-                            <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
+                            <img src="/Images/' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
                             <div class="card-body">
                                 <h5 class="card-title">' . $productName . '</h5>
                                 <p class="card-text">' . $description . '</p>
