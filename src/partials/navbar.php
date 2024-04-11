@@ -2,7 +2,7 @@
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
             <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
-                    <img src="Images/logo.jpg" alt="Logo" width="70" height="50" class="me-2">
+                    <img src="Images/header.png" alt="Logo" width="70" height="50" class="me-2">
                 </a>
                 <!-- hiển thị thanh navbar trang khi đăng nhập với tài khoản admin-->
                 <?php if (isset($_SESSION['user_id'])) : ?>

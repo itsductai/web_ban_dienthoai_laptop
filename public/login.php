@@ -92,9 +92,9 @@
                             <div class="mb-3">
                                 <label for="captcha" class="form-label mr-2">Mã captcha </label>
                                 <img src="<?= $builder->inline() ?>" alt="">
-                                <input type="text" class="form-control" id="captcha" name="captcha" required>
+                                <input type="text" class="form-control mt-3" id="captcha" name="captcha" required>
                             </div>
-                            <input type="submit" name="submit" class="btn btn-primary" value="Đăng nhập">
+                            <input type="submit" name="submit" class="btn text-white" style="background-color: #d70018;" value="Đăng nhập">
                             <a href="#" class="btn btn-warning mx-2">Hủy</a>
                         </form>
                     </div>
