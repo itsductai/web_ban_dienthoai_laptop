@@ -50,9 +50,7 @@ $pages = $paginator->getPages(length: 3);
                     echo '
                     <div class="col-lg-4 mb-2">
                         <div class="card" style="width: 18rem;">
-                            <a href="/product_details.php?id=' . $id_product . '" class="card-link">
-                                <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
-                            </a>
+                            <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
                             <div class="card-body">
                                 <h2 class="card-title">' . $productName . '</h2>
                                 <p class="card-text">' . $description . '</p>
@@ -69,29 +67,29 @@ $pages = $paginator->getPages(length: 3);
                         </div>  
                     </div>';
                     
-}
-?>
+                    }
+                ?>
         
             </div>
             <nav class="d-flex justify-content-center">
-    <ul class="pagination">
-        <li class="page-item<?= $paginator->getPrevPage() === false ? ' disabled' : '' ?>">
-            <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=<?= $limit ?>" class="page-link">
-                <span>&laquo;</span>
-            </a>
-        </li>
-        <?php foreach ($pages as $page) : ?>
-            <li class="page-item<?= $paginator->currentPage === $page ? ' active' : '' ?>">
-                <a role="button" href="/?page=<?= $page ?>&limit=<?= $limit ?>" class="page-link"><?= $page ?></a>
-            </li>
-        <?php endforeach ?>
-        <li class="page-item<?= $paginator->getNextPage() === false ? ' disabled' : '' ?>">
-            <a role="button" href="/?page=<?= $paginator->getNextPage() ?>&limit=<?= $limit ?>" class="page-link">
-                <span>&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+                <ul class="pagination">
+                    <li class="page-item<?= $paginator->getPrevPage() === false ? ' disabled' : '' ?>">
+                        <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=<?= $limit ?>" class="page-link">
+                            <span>&laquo;</span>
+                        </a>
+                    </li>
+                    <?php foreach ($pages as $page) : ?>
+                        <li class="page-item<?= $paginator->currentPage === $page ? ' active' : '' ?>">
+                            <a role="button" href="/?page=<?= $page ?>&limit=<?= $limit ?>" class="page-link"><?= $page ?></a>
+                        </li>
+                    <?php endforeach ?>
+                    <li class="page-item<?= $paginator->getNextPage() === false ? ' disabled' : '' ?>">
+                        <a role="button" href="/?page=<?= $paginator->getNextPage() ?>&limit=<?= $limit ?>" class="page-link">
+                            <span>&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
     </div>

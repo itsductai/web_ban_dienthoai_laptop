@@ -221,4 +221,97 @@ class Product
     {
     $this->image = $imagePath;
     }
+
+    public function search(string $search): array
+    {
+        
+            $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :search');
+            $statement->execute([
+                ':search' => "%$search%"
+            ]);
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+       
+    }
+
+    public function filter_dt(string $hang,string $gia): array
+    {   
+        if($hang=='' && $gia=='') {
+            $statement = $this->db->prepare('SELECT * FROM san_pham WHERE danh_muc_id= 1');
+            $statement->execute();
+            return $statement->fetchAll(PDO::FETCH_OBJ);
+        }else if(isset($_GET['hang']) && $_GET['hang']!=''&& isset($_GET['gia']) && $_GET['gia']=='thap_cao' && $_GET['gia'] !='')
+            {
+                $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang ORDER BY gia');
+                $statement->execute([
+                    ':hang' => "%$hang%"
+                ]);
+                return $statement->fetchAll(PDO::FETCH_OBJ);
+            } else if(isset($_GET['hang']) && $_GET['hang']!=''&& isset($_GET['gia']) && $_GET['gia']=='cao_thap' && $_GET['gia'] !='') 
+                {
+                    $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang ORDER BY gia DESC');
+                    $statement->execute([
+                        ':hang' => "%$hang%"
+                    ]);
+                    return $statement->fetchAll(PDO::FETCH_OBJ);
+                } 
+                    else if(isset($_GET['hang']) && $_GET['hang']!=''&& $_GET['gia'] =='')
+                    {
+                        $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang');
+                        $statement->execute([
+                            ':hang' => "%$hang%"
+                        ]);
+                        return $statement->fetchAll(PDO::FETCH_OBJ);
+                    } else if(isset($_GET['hang']) && $_GET['hang']==''&& isset($_GET['gia']) && $_GET['gia']=='cao_thap' && $_GET['gia'] !='')
+                        {
+                            $statement = $this->db->prepare('SELECT * FROM san_pham ORDER BY gia DESC');
+                            $statement->execute();
+                            return $statement->fetchAll(PDO::FETCH_OBJ);
+                        } else if(isset($_GET['hang']) && $_GET['hang']==''&& isset($_GET['gia']) && $_GET['gia']=='thap_cao' && $_GET['gia'] !='') 
+                            {
+                                $statement = $this->db->prepare('SELECT * FROM san_pham ORDER BY gia ');
+                                $statement->execute();
+                                return $statement->fetchAll(PDO::FETCH_OBJ);
+                            } 
+        }
+
+        public function filter_laptop(string $hang,string $gia): array
+        {   
+            if($hang=='' && $gia=='') {
+                $statement = $this->db->prepare('SELECT * FROM san_pham WHERE danh_muc_id= 2');
+                $statement->execute();
+                return $statement->fetchAll(PDO::FETCH_OBJ);
+            }else if(isset($_GET['hang']) && $_GET['hang']!=''&& isset($_GET['gia']) && $_GET['gia']=='thap_cao' && $_GET['gia'] !='')
+                {
+                    $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang ORDER BY gia');
+                    $statement->execute([
+                        ':hang' => "%$hang%"
+                    ]);
+                    return $statement->fetchAll(PDO::FETCH_OBJ);
+                } else if(isset($_GET['hang']) && $_GET['hang']!=''&& isset($_GET['gia']) && $_GET['gia']=='cao_thap' && $_GET['gia'] !='') 
+                    {
+                        $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang ORDER BY gia DESC');
+                        $statement->execute([
+                            ':hang' => "%$hang%"
+                        ]);
+                        return $statement->fetchAll(PDO::FETCH_OBJ);
+                    } 
+                        else if(isset($_GET['hang']) && $_GET['hang']!=''&& $_GET['gia'] =='')
+                        {
+                            $statement = $this->db->prepare('SELECT * FROM san_pham WHERE ten_san_pham LIKE :hang');
+                            $statement->execute([
+                                ':hang' => "%$hang%"
+                            ]);
+                            return $statement->fetchAll(PDO::FETCH_OBJ);
+                        } else if(isset($_GET['hang']) && $_GET['hang']==''&& isset($_GET['gia']) && $_GET['gia']=='cao_thap' && $_GET['gia'] !='')
+                            {
+                                $statement = $this->db->prepare('SELECT * FROM san_pham ORDER BY gia DESC');
+                                $statement->execute();
+                                return $statement->fetchAll(PDO::FETCH_OBJ);
+                            } else if(isset($_GET['hang']) && $_GET['hang']==''&& isset($_GET['gia']) && $_GET['gia']=='thap_cao' && $_GET['gia'] !='') 
+                                {
+                                    $statement = $this->db->prepare('SELECT * FROM san_pham ORDER BY gia ');
+                                    $statement->execute();
+                                    return $statement->fetchAll(PDO::FETCH_OBJ);
+                                } 
+            }
 }
