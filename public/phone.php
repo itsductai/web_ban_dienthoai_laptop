@@ -95,7 +95,7 @@ include_once __DIR__ . '/../src/partials/header.php';
                         // Hiển thị mỗi sản phẩm trong một thẻ div.card
                         echo '
                         <div class="col-lg-4 px-2 mb-5">
-                            <div class="card shadow" style="width: 17rem;">
+                            <div class="card shadow" style="max-width: 17rem;">
                                 <a href="/product_details.php?id=' . $id_product . '" class="card-link">
                                     <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
                                 </a>
@@ -106,7 +106,7 @@ include_once __DIR__ . '/../src/partials/header.php';
                                         echo '<li class="des-text">' . $arr . '</li>';
                                     }
                                     echo '
-                                    <p class="card-text">Giá: ' . number_format($price, 0, ',', '.') . '</p>
+                                    <p class="card-text text-danger"><strong>' . number_format($price, 0, ',', '.') . ' VNĐ </strong></p>
                                     <form action="/cart.php" method="post">
                                         <input type="hidden" name="product_image" value="' . $imagePath . '">
                                         <input type="hidden" name="product_name" value="' . $productName . '">

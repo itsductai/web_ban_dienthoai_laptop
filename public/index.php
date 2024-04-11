@@ -70,19 +70,19 @@ $pages = $paginator->getPages(length: 3);
                     $imagePath = isset($row->anh) ? html_escape($row->anh) : '';
                     $productName = isset($row->ten_san_pham) ? html_escape($row->ten_san_pham) : '';
                     $description = isset($row->mo_ta) ? html_escape($row->mo_ta) : '';
-                    $price = isset($row->gia) ? str_replace(['.', ','], ['', ''], $row->gia) : 0;
+                    $price = isset($row->gia) ? $row->gia : 0;
                     $id_product = isset($row->san_pham_id) ? html_escape($row->san_pham_id) : '';
                     // Hiển thị mỗi sản phẩm trong một thẻ div.card
                     echo '
                     <div class="col-lg-4 mb-4">
-                        <div class="card shadow" style="width: 18rem;">
+                        <div class="card shadow" style="max-width: 18rem;">
                             <a href="/product_details.php?id=' . $id_product . '" class="card-link">
                                 <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
                             </a>
                             <div class="card-body">
                                 <h3 class="card-title">' . $productName . '</h3>
                                 
-                                <p class="card-text">Giá: ' . number_format($price, 0, ',', '.') . ' VNĐ</p>
+                                <p class="card-text text-danger"><strong>' . number_format($price, 0, ',', '.') . ' VNĐ </strong></p>
                                 <form action="/cart.php" method="post">
                                     <input type="hidden" name="product_image" value="' . $imagePath . '">
                                     <input type="hidden" name="product_name" value="' . $productName . '">
