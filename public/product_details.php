@@ -58,11 +58,18 @@ include_once __DIR__ . '/../src/partials/navbar.php';
                                 <input type="hidden" name="product_image" value="<?php echo $product_details->image; ?>">
                                 <input type="hidden" name="product_name" value="<?php echo $product_details->name; ?>">
                                 <input type="hidden" name="product_price" value="<?php echo number_format($product_details->price, 0, ',', '.'); ?>">
-                                <div class="mb-3">
-                                    <label for="quantity" class="form-label">Số lượng:</label>
-                                    <input type="number" id="quantity" name="product_number" class="form-control" value="1" min="1">
-                                </div>
-                                <button type="submit" class="btn btn-primary" name="add_cart">Đặt hàng</button>
+                                
+                                <form action="/cart.php" method="post">
+                                    <input type="hidden" name="product_image" value="<?php echo $product_details->image; ?>">
+                                    <input type="hidden" name="product_name" value="<?php echo $product_details->name; ?>">
+                                    <input type="hidden" name="product_price" value="<?php echo $product_details->price; ?>">
+                                    <div class="mb-3">
+                                        <label for="quantity" class="form-label">Số lượng:</label>
+                                        <input type="number" id="quantity" name="product_number" class="form-control" value="1" min="1">
+                                    </div>
+                                    <input type="hidden" name="product_id" value="' . $id_product . '">
+                                    <input type="submit" class="btn btn-primary" name="add_cart" value="đặt hàng">  
+                                </form>
                             </form>
                                 <div>
                                 <h2>Mô tả</h2>

@@ -24,9 +24,35 @@ $pages = $paginator->getPages(length: 3);
 
 
 <div class="container mt-5 mb-5">
+<div class="row">
+            <div class="col-lg-12">
+            <div id="carouselExampleFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                    <img src="Images/banner-1.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="Images/banner-2.jpg" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                    <img src="Images/banner-3.jpg" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                </button>
+                </div>
+            </div>
+        </div>
     <div class="row">
+        
         <!-- danh mục sản phẩm -->
-        <div class="col-lg-3">
+        <!-- <div class="col-lg-3">
             <h3>Danh mục</h3>
             
                     <button class="btn btn-primary ">Điện thoại</button>
@@ -35,8 +61,8 @@ $pages = $paginator->getPages(length: 3);
                     <button class="btn btn-primary">Laptop</button>
                 
             
-            </div>
-        <div class="col-lg-9">
+            </div> -->
+        <div class="col-lg-12">
             <h1>Sản phẩm</h1>
             <div class="row">
                 <?php foreach ($products as $row) {  
@@ -48,14 +74,14 @@ $pages = $paginator->getPages(length: 3);
                     $id_product = isset($row->san_pham_id) ? html_escape($row->san_pham_id) : '';
                     // Hiển thị mỗi sản phẩm trong một thẻ div.card
                     echo '
-                    <div class="col-lg-4 mb-2">
+                    <div class="col-lg-4 mb-4">
                         <div class="card shadow" style="width: 18rem;">
                             <a href="/product_details.php?id=' . $id_product . '" class="card-link">
                                 <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
                             </a>
                             <div class="card-body">
                                 <h3 class="card-title">' . $productName . '</h3>
-                                <p class="card-text">' . $description . '</p>
+                                
                                 <p class="card-text">Giá: ' . number_format($price, 0, ',', '.') . ' VNĐ</p>
                                 <form action="/cart.php" method="post">
                                     <input type="hidden" name="product_image" value="' . $imagePath . '">
