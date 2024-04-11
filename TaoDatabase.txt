@@ -1,0 +1,77 @@
+CREATE TABLE danh_muc(
+    danh_muc_id INT AUTO_INCREMENT PRIMARY KEY,
+    ten_danh_muc VARCHAR(255)
+);
+CREATE TABLE san_pham (
+    san_pham_id INT AUTO_INCREMENT PRIMARY KEY,
+    ten_san_pham VARCHAR(255),
+    mo_ta TEXT,
+    gia DECIMAL(10, 2),
+    so_luonh INT,
+    anh VARCHAR(255),
+    danh_muc_id INT,
+    FOREIGN KEY (danh_muc_id) REFERENCES danh_muc(danh_muc_id)
+);
+CREATE TABLE thanh_vien(
+    thanh_vien_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50),
+    password VARCHAR(255),
+    email VARCHAR(100),
+    address VARCHAR(255),
+    phone_number VARCHAR(20)
+);
+CREATE TABLE don_hang (
+    don_hang_id INT AUTO_INCREMENT PRIMARY KEY,
+    thanh_vien_id INT,
+    ngay_lap DATE,
+    tong_gia DECIMAL(10, 2),
+    FOREIGN KEY (thanh_vien_id) REFERENCES thanh_vien(thanh_vien_id)
+);
+CREATE TABLE chi_tiet_don_hang (
+    chi_tiet_don_hang_id INT AUTO_INCREMENT PRIMARY KEY,
+    don_hang_id INT,
+    san_pham_id INT,
+    so_luong INT,
+    chi_tiet_gia DECIMAL(10, 2),
+    FOREIGN KEY (don_hang_id) REFERENCES don_hang(don_hang_id),
+    FOREIGN KEY (san_pham_id) REFERENCES san_pham(san_pham_id)
+);
+
+INSERT INTO san_pham VALUES (1, 'Iphone 15 Pro Max','Chip Apple A17 Pro 6 nhân /RAM: 8 GB /Dung lượng: 256 GB /Camera sau: Chính 48 MP & Phụ 12 MP /Camera trước: 12 MP /Pin 4422 mAh',35000000,46,'iphone-15-pro-max.jpg',1),
+	(2, 'Iphone 15 Plus','Chip Apple A16 Bionic /RAM: 6 GB /Dung lượng: 128 GB /Camera sau: Chính 48 MP & Phụ 12 MP /Camera trước: 12 MP /Pin 4383 mAh',27000000,100,'iphone-15-plus-xanh-la.jpg',1),
+	(3, 'Iphone 14 Pro Max','Chip Apple A16 Bionic/RAM: 6 GB/Dung lượng: 128 GB/Camera sau: Chính 48 MP & Phụ 12 MP/Camera trước: 12 MP/Pin 4323 mAh',2739000,84,'iphone-14-pro-max.jpg',1),
+	(4, 'Iphone 14','Chip Apple A15 Bionic/RAM: 6 GB/Dung lượng: 128 GB/Camera sau: 2 camera 12 MP/Camera trước: 12 MP/Pin 3279 mAh',17490000,67,'iphone-14.jpg',1),
+	(5, 'Iphone 14 Plus','Chip Apple A15 Bionic/RAM: 6 GB/Dung lượng: 128 GB/Camera sau: 2 camera 12 MP/Camera trước: 12 MP/Pin 4279 mAh',19990000,75,'iphone-14-plus.jpg',1),
+	(6, 'Iphone 13','Chip Apple A15 Bionic/RAM: 4 GB/Dung lượng: 128 GB/Camera sau: 2 camera 12 MP/Camera trước: 12 MP/Pin 3240 mAh',17790000,56,'iphone-13.jpg',1),
+	(7, 'Iphone 12','Chip Apple A14 Bionic/RAM: 4 GB/Dung lượng: 64 GB/Camera sau: 2 camera 12 MP/Camera trước: 12 MP/Pin 2840 mAh',12090000,32,'iphone-12.jpg',1),
+	(8, 'Iphone 11','Chip Apple A13 Bionic/RAM: 4 GB/Dung lượng: 64 GB/Camera sau: 2 camera 12 MP/Camera trước: 12 MP/Pin 3110 mAh',8990000,100,'iphone-11.jpg',1),
+	(9, 'Samsung Galaxy M34 5G','Chip Exynos 1280/RAM: 8 GB/Dung lượng: 128 GB/Camera sau: Chính 50 MP & Phụ 8 MP/Camera trước: 13 MP/Pin 6000 mAh,',639000,53,'samsung-galaxy-m34.jpg',1),
+	(10, 'Samsung Galaxy S24 Ultra','Chip Snapdragon 8 Gen 3 for Galaxy/RAM: 12 GB/Dung lượng: 256 GB/Camera sau: Chính 200 MP & Phụ 50 MP 12 MP 10 MP/Camera trước: 12 MP/Pin 5000 mAh',27990000,105,'samsung-galaxy-s24-ultra.jpg',1),
+	(11, 'Samsung Galaxy S24+','Chip Exynos 2400/RAM: 12 GB/Dung lượng: 256 GB/Camera sau: Chính 50 MP & Phụ 12 MP 10 MP/Camera trước: 12 MP/Pin 4900 mAh',21790000,95,'samsung-galaxy-s24-plus.jpg',1),
+	(13, 'Samsung Galaxy S24','Chip Exynos 2400/RAM: 8 GB/Dung lượng: 256 GB/Camera sau: Chính 50 MP & Phụ 12 MP 10 MP/Camera trước: 12 MP/Pin 4500 mAh',19090000,70,'samsung-galaxy-s24.jpg',1),
+	(14, 'Samsung Galaxy A55','Chip Exynos 1480/RAM: 8 GB/Dung lượng: 256 GB/Camera sau: Chính 50 MP & Phụ 12 MP 5 MP/Camera trước: 32 MP/Pin 5000 mAh',11400000,76,'samsung-galaxy-a55.jpg',1),
+	(15, 'Samsung Galaxy A15','Chip Exynos 1400/RAM: 4 GB/Dung lượng: 64 GB/Camera sau: Chính 50 MP & Phụ 5 MP 2 MP/Camera trước: 12 MP/Pin 4500 mAh',5900000,54,'samsung-galaxy-a15.jpg',1),
+	(16, 'Samsung Galaxy Z Fold','Chip Snapdragon 8 Gen 3 for Galaxy/RAM: 12 GB/Dung lượng: 256 GB/Camera sau: Chính 50 MP & Phụ 12 MP 10 MP/Camera trước: 12 MP/Pin 4900 mAh',31790000,95,'samsung-galaxy-z-fold.jpg',1),
+	(17, 'Samsung Galaxy Z Flip','Chip Snapdragon 8 Gen 3 for Galaxy/RAM: 8 GB/Dung lượng: 256 GB/Camera sau: Chính 12 MP & Phụ 12 MP/Camera trước: 10 MP/Pin 3700 mAh',17790000,45,'samsung-galaxy-z-flip.jpg',1),
+	(18, 'Xiaomi 13 Lite','Chip MediaTek Helio G85/RAM: 4 GB/Dung lượng: 128 GB/Camera sau: Chính 50 MP & Phụ 2 MP/Camera trước: 8 MP/Pin 5000 mAh',8890000,88,'xiaomi-13-lite.jpg',1),
+	(19, 'Xiaomi 14','Chip Snapdragon Gen 8/RAM: 12 GB/Dung lượng: 512 GB/Camera sau: Chính 50 MP & Phụ 2 MP/Camera trước: 8 MP/Pin 5000 mAh',8890000,88,'xiaomi-14.jpg',1),
+	(20, 'Xiaomi Redmi Note 12 Pro','Chip MediaTek Dimensity 8200/RAM: 8 GB/Dung lượng: 256 GB/Camera sau: Chính 50 MP & Phụ 2 MP/Camera trước: 8 MP/Pin 4900 mAh',10990000,82,'xiaomi-redmi-note-12-pro.jpg',1),
+	(21, 'Xiaomi Redmi Note 13','Chip Snapdragon 685/RAM: 8 GB/Dung lượng: 256 GB/Camera sau: Chính 108 MP & Phụ 8 MP/Camera trước: 16 MP/Pin 5100 mAh',4900000,72,'xiaomi-redmi-note-13.jpg',1),
+	(22, 'Xiaomi Redmi Note 13C','Chip Mediatek helio/RAM: 4 GB/Dung lượng: 128 GB/Camera sau: Chính 50 MP & Phụ 8 MP/Camera trước: 8 MP/Pin 4890 mAh',2890000,42,'xiaomi-redmi-note-13c.jpg',1),
+	(23, 'HP Gaming Victus 16','Màn hình: 16.1 Full HD 144Hz/CPU: Ryzen 7 7840HS 3.8GHz/Card: RTX 3050 6GB/Pin: 4-cell/Khối lượng: 2.34 kg',25990000,23,'hp-gaming-victus-16.jpg',2),
+	(24, 'HP Gaming Victus 15','Màn hình: 15.6 Full HD 144Hz/CPU: Ryzen 5 7540HS 3.3GHz/Card: RTX 2050 4GB/Pin: 3-cell/Khối lượng: 2.29 kg',19990000,13,'hp-victus-15.jpg',2),
+	(25, 'HP Pavilion 14','Màn hình: 14 Full HD/CPU: i5 1.3GHz/Card: Intel/Pin: 3-cell/Khối lượng: 1.41 kg',17090000,33,'hp-pavilion-14.jpg',2),
+	(26, 'HP Pavilion 15','Màn hình: 15.6 Full HD/CPU: i5 2GHz/Card: RTX 2050/Pin: 3-cell/Khối lượng: 2.29 kg',17090000,33,'hp-pavilion-15.jpg',2),
+	(27, 'Lenovo loq 15','Màn hình: 15.6 Full HD/CPU: i5 2GHz/Card: RTX 3050/Pin: 3-cell/Khối lượng: 2.19 kg',23990000,13,'laptop-lenovo-loq-15.jpg',2),
+	(28, 'Lenovo Ideapad 5','Màn hình: 14/CPU: i5/Card: Intel/Pin: 3-cell/Khối lượng: 1.89 kg',14990000,24,'lenovo-ideapad5.jpg',2),
+	(29, 'Lenovo Ideapad 3','Màn hình: 14 Full HD/CPU: i3/Card: Intel/Pin: 2-cell/Khối lượng: 2.19 kg',9390000,22,'lenovo-ideapad3.jpg',2),
+	(30, 'Macbook Air M1','Màn hình: 13.3/CPU: Apple M1/Card: 7 nhân GPU/Pin: Lên đến 18 giờ/Khối lượng: 1.29 kg',18990000,22,'apple-macbook-air-m1.jpg',2),
+	(31, 'Macbook Air M2 2022','Màn hình: 13.6/CPU: Apple M2/Card: 8 nhân GPU/Pin: Lên đến 18 giờ/Khối lượng: 1.24 kg',24990000,22,'apple-macbook-air-m2-2022.jpg',2),
+	(32, 'Macbook Air M2','Màn hình: 13.6/CPU: Apple M2/Card: 10 nhân GPU/Pin: Lên đến 18 giờ/Khối lượng: 1.24 kg',33990000,8,'apple-macbook-air-m2.jpg',2),
+	(33, 'Macbook Air 15','Màn hình: 15.3/CPU: Apple M2/Card: 10 nhân GPU/Pin: Lên đến 18 giờ/Khối lượng: 1.51 kg',35990000,8,'apple-macbook-air-15.jpg',2),
+	(34, 'Macbook Pro 14','Màn hình: 14.2 4K/CPU: Apple M3 Max/Card: 30 nhân GPU/Pin: Lên đến 18 giờ/Khối lượng: 1.61 kg',79490000,8,'apple-macbook-pro-14.jpg',2);
+
+
+
+
+	
