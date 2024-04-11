@@ -66,7 +66,11 @@ include_once __DIR__ . '/../src/partials/navbar.php';
                             </form>
                                 <div>
                                 <h2>Mô tả</h2>
-                                <p class="card-text"><?php echo $product_details->description; ?></p>
+                                <p class="card-text"><?php                                     
+                                $arrs = explode("/", $product_details->description);
+                                    foreach($arrs as $arr){
+                                        echo '<li class="des-text">' . $arr . '</li>';
+                                    } ?></p>
                                 </div>
                             </div>
 

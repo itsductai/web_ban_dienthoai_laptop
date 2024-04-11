@@ -96,7 +96,9 @@ include_once __DIR__ . '/../src/partials/header.php';
                         echo '
                         <div class="col-lg-4 mb-5">
                             <div class="card shadow" style="width: 18rem;">
+                                <a href="/product_details.php?id=' . $id_product . '" class="card-link">
                                 <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
+                                </a>
                                 <div class="card-body">
                                     <h5 class="card-title">' . $productName . '</h5>';
                                     $arrs = explode("/",$description);
