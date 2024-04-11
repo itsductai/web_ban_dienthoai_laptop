@@ -68,29 +68,29 @@ $pages = $paginator->getPages(length: 3);
                         </div>  
                     </div>';
                     
-}
-?>
+                    }
+                ?>
         
             </div>
             <nav class="d-flex justify-content-center">
-    <ul class="pagination">
-        <li class="page-item<?= $paginator->getPrevPage() === false ? ' disabled' : '' ?>">
-            <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=<?= $limit ?>" class="page-link">
-                <span>&laquo;</span>
-            </a>
-        </li>
-        <?php foreach ($pages as $page) : ?>
-            <li class="page-item<?= $paginator->currentPage === $page ? ' active' : '' ?>">
-                <a role="button" href="/?page=<?= $page ?>&limit=<?= $limit ?>" class="page-link"><?= $page ?></a>
-            </li>
-        <?php endforeach ?>
-        <li class="page-item<?= $paginator->getNextPage() === false ? ' disabled' : '' ?>">
-            <a role="button" href="/?page=<?= $paginator->getNextPage() ?>&limit=<?= $limit ?>" class="page-link">
-                <span>&raquo;</span>
-            </a>
-        </li>
-    </ul>
-</nav>
+                <ul class="pagination">
+                    <li class="page-item<?= $paginator->getPrevPage() === false ? ' disabled' : '' ?>">
+                        <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=<?= $limit ?>" class="page-link">
+                            <span>&laquo;</span>
+                        </a>
+                    </li>
+                    <?php foreach ($pages as $page) : ?>
+                        <li class="page-item<?= $paginator->currentPage === $page ? ' active' : '' ?>">
+                            <a role="button" href="/?page=<?= $page ?>&limit=<?= $limit ?>" class="page-link"><?= $page ?></a>
+                        </li>
+                    <?php endforeach ?>
+                    <li class="page-item<?= $paginator->getNextPage() === false ? ' disabled' : '' ?>">
+                        <a role="button" href="/?page=<?= $paginator->getNextPage() ?>&limit=<?= $limit ?>" class="page-link">
+                            <span>&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </div>
 
     </div>
