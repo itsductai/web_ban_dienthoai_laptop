@@ -2,6 +2,7 @@
 <?php
 session_start();
 
+
 // Kiểm tra nếu giỏ hàng chưa được khởi tạo, khởi tạo giỏ hàng là một mảng trống
 if (!isset($_SESSION['cart'])) {
     $_SESSION['cart'] = [];
@@ -23,7 +24,7 @@ if (isset($_POST['add_cart']) && ($_POST['add_cart'])) {
         $product_name = $_POST['product_name'];
         $product_price = $_POST['product_price'];
         $product_number = $_POST['product_number'];
-
+        $product_id = $_POST['product_id'];
 
         // Kiểm tra sản phẩm cho trong giỏ hàng hay chưa
         $exist = false;
@@ -37,16 +38,17 @@ if (isset($_POST['add_cart']) && ($_POST['add_cart'])) {
         }
     // Nếu sản phẩm chưa có trong giỏ hàng, thêm mới vào
         if (!$exist) {
-            $product = [$product_image, $product_name, $product_price, $product_number];
+            $product = [$product_image, $product_name, $product_price, $product_number,$product_id ];
             $_SESSION['cart'][] = $product;
         }  
-    }
+    }   
         function showCart()
         {
             if (isset($_SESSION['cart']) && is_array($_SESSION['cart'])&& count($_SESSION['cart']) > 0  ) {
             $total = 0;
+            $subtotal = 0;
             foreach ($_SESSION['cart'] as $index => $product) {
-                $subtotal = $product[2] * $product[3]; // Tính tổng giá của mỗi sản phẩm
+                $subtotal = floatval($product[2]) * intval($product[3]); // Tính tổng giá của mỗi sản phẩm
                 $total += $subtotal; // Cập nhật tổng giá trị
                 echo '
                 <tr class="text-center">
@@ -54,14 +56,14 @@ if (isset($_POST['add_cart']) && ($_POST['add_cart'])) {
                     <td class="align-middle">' . $product[1] . '</td>
                     <td class="align-middle"><img src="' . $product[0] . '" alt="' . $product[1] . '" class="product-image" style="width: 100px;"></td>
                     <td class="align-middle">' . $product[3] . '</td>
-                    <td class="align-middle">' . $subtotal. '</td>
+                    <td class="align-middle">' .number_format($subtotal, 0, ',', '.'). '</td>
                     <td class="align-middle">
                     <a href="cart.php?delid='.$index.'"class="btn btn-danger" onclick="return confirmDelete()">Xóa</a></td>
                     </tr>';
             }
             echo'<tr class="text-center">
             <th colspan="4" class="align-middle">Tổng giá</th>
-            <th colspan="2" class="align-middle">' . $total . '</th>
+            <th colspan="2" class="align-middle">' . number_format($total, 0, ',', '.') . ' VNĐ</th>
             </tr>';
         }else {
             echo '<tr><td colspan="6" class="text-center">Giỏ hàng của bạn đang trống</td></tr>';
@@ -76,7 +78,7 @@ include_once __DIR__ . '/../src/partials/header.php';
 ?>
 <body>
 <?php include_once __DIR__ . '/../src/partials/navbar.php' ?>
-    <div class="container mt-5">
+    <div class="container mt-5 border">
         <h1 class="mb-4">Giỏ hàng</h1>
         <div class="mb-3">
             <a href="cart.php?delcart=1" class="btn btn-danger mb-3" onclick="return confirmAllDelete()">
@@ -84,6 +86,9 @@ include_once __DIR__ . '/../src/partials/header.php';
             </a>
             <a href="index.php?" class="btn btn-warning mb-3">
                 <i class="fa-solid fa-cart-shopping"></i> Đặt hàng
+            </a>
+            <a href="checkout.php" class="btn btn-success mb-3">
+                <i class="fas fa-money-bill-alt"></i> Thanh toán
             </a>
         </div>
            

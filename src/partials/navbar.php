@@ -11,6 +11,7 @@
                         <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
                         <li><a href="Admin.php" class="nav-link px-2 text-white">Sản Phẩm</a></li>
                         <li><a href="category.php" class="nav-link px-2 text-white">Danh mục</a></li>
+                        <li><a href="order.php" class="nav-link px-2 text-white">Đơn hàng</a></li>
                     </ul>
                     <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -39,7 +40,7 @@
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                         <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
                         <li><a href="#" class="nav-link px-2 text-white">Sản Phẩm</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Đánh giá</a></li>
+                        <li><a href="#" class="nav-link px-2 text-white">Liên hệ</a></li>
                     </ul>
                     <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -68,7 +69,7 @@
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
                     <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
                     <li><a href="#" class="nav-link px-2 text-white">Sản Phẩm</a></li>
-                    <li><a href="#" class="nav-link px-2 text-white">Đánh giá</a></li>
+                    <li><a href="contac.php" class="nav-link px-2 text-white">Liên hệ</a></li>
                 </ul>
                 <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
                 <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">

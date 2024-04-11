@@ -4,7 +4,6 @@ require_once __DIR__ . '/../src/bootstrap.php';
 include_once __DIR__ . '/../src/partials/header.php';
 ?>
 <?php
-require_once __DIR__ . '/../src/bootstrap.php';
 use CT275\Project\Product;
 use CT275\Project\Paginator;
 $product = new Product($PDO);
