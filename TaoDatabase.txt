@@ -25,6 +25,7 @@ CREATE TABLE don_hang (
     thanh_vien_id INT,
     ngay_lap DATE,
     tong_gia DECIMAL(10, 2),
+    trang_thai VARCHAR(50) DEFAULT 'chưa duyệt',
     FOREIGN KEY (thanh_vien_id) REFERENCES thanh_vien(thanh_vien_id)
 );
 CREATE TABLE chi_tiet_don_hang (
