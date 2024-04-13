@@ -91,17 +91,17 @@ $pages = $paginator->getPages(length: 3);
 <nav class="d-flex justify-content-center">
     <ul class="pagination">
         <li class="page-item<?= $paginator->getPrevPage() ?'' : ' disabled' ?>">
-            <a role="button" href="/?page=<?= $paginator->getPrevPage() ?>&limit=5" class="page-link">
+            <a role="button" href="/Admin.php?page=<?= $paginator->getPrevPage() ?>&limit=5" class="page-link">
                 <span>&laquo;</span>
             </a>
         </li>
     <?php foreach ($pages as $page) : ?>
         <li class="page-item<?= $paginator->currentPage === $page ?' active' : '' ?>">
-            <a role="button" href="/?page=<?= $page ?>&limit=5" class="page-link"><?= $page ?></a>
+            <a role="button" href="/Admin.php?page=<?= $page ?>&limit=5" class="page-link"><?= $page ?></a>
         </li>
     <?php endforeach ?>
         <li class="page-item<?= $paginator->getNextPage() ?'' : ' disabled' ?>">
-            <a role="button" href="/?page=<?= $paginator->getNextPage() ?>&limit=5" class="page-link">
+            <a role="button" href="/Admin.php?page=<?= $paginator->getNextPage() ?>&limit=5" class="page-link">
                 <span>&raquo;</span>
             </a>
         </li>
