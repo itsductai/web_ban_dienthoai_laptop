@@ -8,9 +8,9 @@
                 <?php if (isset($_SESSION['user_id'])) : ?>
                     <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') : ?>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
-                        <li><a href="order.php" class="nav-link px-2 text-white">Đơn hàng</a></li>
-                        <li><a href="category.php" class="nav-link px-2 text-white">Danh mục</a></li>
+                        <li><a href="index.php" class="fs-5 fw-light nav-link px-2 text-white">Trang chủ</a></li>
+                        <li><a href="order.php" class="fs-5 fw-light nav-link px-2 text-white">Đơn hàng</a></li>
+                        <li><a href="category.php" class="fs-5 fw-light nav-link px-2 text-white">Danh mục</a></li>
                     </ul> 
                     <div id="search-input" >
                         <form class="row ml-2 mr-2" method="GET" action="search.php">
@@ -40,9 +40,9 @@
                  <!-- hiển thị thanh navbar trang khi đăng nhập với tài khoản người dùng -->
                 <?php else : ?>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Sản Phẩm</a></li>
-                        <li><a href="#" class="nav-link px-2 text-white">Liên hệ</a></li>
+                        <li><a href="index.php" class="fs-5 fw-light nav-link px-2 text-white">Trang chủ</a></li>
+                        <li><a href="#" class="fs-5 fw-light nav-link px-2 text-white">Sản Phẩm</a></li>
+                        <li><a href="#" class="fs-5 fw-light nav-link px-2 text-white">Liên hệ</a></li>
                     </ul>
                     <a href="cart.php"class="btn  btn-outline-light "><i class="fa-solid fa-cart-shopping"></i></a>  
                     <div id="search-input" >
@@ -72,9 +72,9 @@
                 <!-- hiển thị thanh navbar trang khi chưa đăng nhập -->
             <?php else : ?>
                 <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                    <li><a href="index.php" class="nav-link px-2 text-white">Trang chủ</a></li>
+                    <li><a href="index.php" class="fs-5 fw-light nav-link px-2 text-white">Trang chủ</a></li>
                     <li class="btn-group">
-                            <button type="button" class="btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
+                            <button type="button" class="fs-5 fw-light btn dropdown-toggle text-white" data-bs-toggle="dropdown" aria-expanded="false">
                                 Sản phẩm
                             </button>
                             <ul class="dropdown-menu">
@@ -82,7 +82,7 @@
                                 <li><a class="dropdown-item" href="laptop.php">Máy tính</a></li>
                             </ul>
                     </li>
-                    <li><a href="contac.php" class="nav-link px-2 text-white">Liên hệ</a></li>
+                    <li><a href="contac.php" class="fs-5 fw-light nav-link px-2 text-white">Liên hệ</a></li>
                 </ul>
                 <a href="cart.php"class="btn  btn-outline-light mr-2"><i class="fa-solid fa-cart-shopping"></i></a>  
                 <div id="search-input" >

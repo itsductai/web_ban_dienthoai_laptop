@@ -14,6 +14,7 @@ if (session_status() === PHP_SESSION_NONE) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DiTi Store</title>
     <link href="/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css">
     <!-- phan logo -->
     <link href="/Images/header.png" rel="shortcut icon" type="image/vnd.microsoft.icon" >
 

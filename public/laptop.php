@@ -10,10 +10,27 @@ include_once __DIR__ . '/../src/partials/header.php';
 	width: 100px;
 	height: 20px;
     text-align: center;
-}
-.des-text{
+    }
+
+    h1{
+        color: #d70018;
+        font-weight: 800;
+        text-align: center;
+        background-image: linear-gradient(90deg, #ffd400, #ffff);
+    }
+    .des-text{
         font-size: 15px;
     }
+
+    .item{
+        border-radius: 50px;
+        display: flex; justify-content: center;
+    }
+    .item :hover{
+        transform: translateY(-5px);
+        transition: 0.5s;
+    }
+
 </style>
 <?php
     use CT275\Project\Product;
@@ -81,9 +98,9 @@ include_once __DIR__ . '/../src/partials/header.php';
             
 
             <h1 >Laptop :</h1>
-            <p class="mini-info border border-info"><?= count($products)?> Laptop</p>
+            <p class="mini-info border border-info"><?= count($products)?> Laptop :</p>
             <div class="row">
-                <?php if(count($products)!=0)
+            <?php if(count($products)!=0)
                 {
                     foreach ($products as $row) {  
                         // Xác định đường dẫn của anh
@@ -93,31 +110,33 @@ include_once __DIR__ . '/../src/partials/header.php';
                         $price = isset($row->gia) ? $row->gia : 0;
                         $id_product = isset($row->san_pham_id) ? html_escape($row->san_pham_id) : '';
                         // Hiển thị mỗi sản phẩm trong một thẻ div.card
-                        echo '
-                        <div class="col-lg-4 mb-5">
-                            <div class="card shadow" style="max-width: 18rem;">
-                                <a href="/product_details.php?id=' . $id_product . '" class="card-link">
-                                <img src="' . $imagePath . '" class="card-img-top" alt="' . $productName . '">
-                                </a>
-                                <div class="card-body">
-                                    <h5 class="card-title ">' . $productName . '</h5>';
-                                    $arrs = explode("/",$description);
+                        echo 
+                        '<div class="col-lg-4 mb-4 item" style="">
+                        <div class="card shadow" style="max-width: 16rem; border-radius:40px; text-align:center;">
+                            <a href="/product_details.php?id=' . $id_product . '" class="card-link">
+                                <img style="width: 80%;" src="' . $imagePath . '" class=" mt-2 card-img-top" alt="' . $productName . '">
+                            </a>
+                            <div class="card-body">
+                                <h4 class="card-title " >' . $productName . '</h4>';
+                                $arrs = explode("/",$description);
                                     foreach($arrs as $arr){
-                                        echo '<li class="des-text">' . $arr . '</li>';
+                                        echo '<li class="des-text" >' . $arr . '</li>';
                                     }
                                     echo '
-                                    <p class="card-text text-danger"><strong>' . number_format($price, 0, ',', '.') . ' VNĐ </strong></p>
-                                    <form action="/cart.php" method="post">
-                                        <input type="hidden" name="product_image" value="' . $imagePath . '">
-                                        <input type="hidden" name="product_name" value="' . $productName . '">
-                                        <input type="hidden" name="product_price" value="' . $price. '">
-                                        <input type="hidden" name="product_number" id="product_number" value="1">
-                                        <input type="hidden" name="product_id" value="' . $id_product . '">
-                                        <input type="submit" class="btn btn-primary" name="add_cart" value="đặt hàng">  
+                                <p class="card-text text-danger"><strong>' . number_format($price, 0, ',', '.') . ' VNĐ </strong></p>
+                                <form action="/cart.php" method="post">
+                                    <input type="hidden" name="product_image" value="' . $imagePath . '">
+                                    <input type="hidden" name="product_name" value="' . $productName . '">
+                                    <input type="hidden" name="product_price" value="' . $price. '">
+                                    <input type="hidden" name="product_number" id="product_number" value="1">
+                                    <input type="hidden" name="product_id" value="' . $id_product . '">
+                                    <button type="submit" class="btn" style=" background-color: #d70018; color: white;" name="add_cart" value="Đặt hàng"><i class="fa-solid fa-cart-shopping"></i> Mua ngay</button>  
                                 </form>
-                                </div>
-                            </div>  
-                        </div>';
+                            </div>
+                        </div>  
+                    </div>';
+                    
+                            
                         
                         }
                 } else echo'<h4 class="pb-2 mb-4 text-danger border-bottom border-danger">Không tìm thấy sản phẩm nào!</h4>';
