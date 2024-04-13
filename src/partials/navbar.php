@@ -8,7 +8,7 @@
                 <?php if (isset($_SESSION['user_id'])) : ?>
                     <?php if (isset($_SESSION['username']) && $_SESSION['username'] === 'admin') : ?>
                     <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                        <li><a href="index.php" class="fs-5 fw-light nav-link px-2 text-white">Trang chủ</a></li>
+                        <li><a href="Admin.php" class="fs-5 fw-light nav-link px-2 text-white">Sản phẩm</a></li>
                         <li><a href="order.php" class="fs-5 fw-light nav-link px-2 text-white">Đơn hàng</a></li>
                         <li><a href="category.php" class="fs-5 fw-light nav-link px-2 text-white">Danh mục</a></li>
                     </ul> 

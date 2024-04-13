@@ -88,12 +88,13 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </div>
         </div>
     </div>
+    <?php include_once __DIR__ . '/../src/partials/footer.php' ?>
     <script>
         // set thời gian hiện thông báo
         setTimeout(function() {
             document.getElementById('success-message').style.display = 'none';
         }, 2000);
     </script>
-    <?php include_once __DIR__ . '/../src/partials/footer.php' ?>
+    
 </body>
 </html>
