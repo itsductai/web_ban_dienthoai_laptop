@@ -11,7 +11,6 @@ if (!isset($_SESSION['user_id'])) {
 // Kiểm tra xem có dữ liệu được gửi từ form không
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Lấy thông tin từ form
-    $name = $_POST['name'];
     $email = $_POST['email'];
     $phone = $_POST['phone'];
     $address = $_POST['address'];
@@ -58,6 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     // Chuyển hướng người dùng sau khi xử lý đơn hàng thành công
     header("Location: index.php");
+    $_SESSION['success_message'] = "Đơn hàng của bạn đã được đặt thành công!";
     exit;
 } else {
     // Nếu không có dữ liệu được gửi từ form, chuyển hướng về trang thanh toán

@@ -77,10 +77,6 @@ $total = 0;
                         <h2 class="card-title">Thông tin thanh toán</h2>
                         <form action="process_payment.php" method="POST">
                             <div class="mb-3">
-                                <label for="name" class="form-label">Họ và tên:</label>
-                                <input type="text" class="form-control" id="name" name="name" value="<?= $user['username'] ?>" required>
-                            </div>
-                            <div class="mb-3">
                                 <label for="email" class="form-label">Email:</label>
                                 <input type="email" class="form-control" id="email" name="email" value="<?= $user['email'] ?>" required>
                             </div>
@@ -93,6 +89,7 @@ $total = 0;
                                 <textarea class="form-control" id="address" name="address" rows="3" required><?= $user['address'] ?></textarea>
                             </div>
                             <button type="submit" class="btn btn-primary">Xác nhận thanh toán</button>
+                            <a href="edit_payment.php" class="btn btn-warning">Edit</a>
                         </form>
                     </div>
                 </div>

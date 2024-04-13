@@ -2,7 +2,13 @@
 require_once __DIR__ . '/../src/bootstrap.php';
 
 include_once __DIR__ . '/../src/partials/header.php';
+// Kiểm tra xem có thông báo thành công không
+if (isset($_SESSION['success_message'])) {
+    echo '<div class="alert alert-success">' . $_SESSION['success_message'] . '</div>';
+    unset($_SESSION['success_message']); // Xóa thông báo sau khi hiển thị
+}
 ?>
+
 <?php
 use CT275\Project\Product;
 use CT275\Project\Paginator;

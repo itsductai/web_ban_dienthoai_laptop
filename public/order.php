@@ -58,7 +58,8 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             $stmt->execute([$order_id]);
                                             $order_items = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                             foreach ($order_items as $item) {
-                                                echo "<li>{$item['ten_san_pham']} - Số lượng: {$item['so_luong']} - Giá: {$item['chi_tiet_gia']} VNĐ</li>";
+                                                $formatted_price = number_format($item['chi_tiet_gia'], 0, ',', '.'); // Định dạng giá tiền
+                                                echo "<li>{$item['ten_san_pham']} - Số lượng: {$item['so_luong']} - Giá: {$formatted_price} VNĐ</li>";
                                             }
                                             ?>
                                         </ul>
