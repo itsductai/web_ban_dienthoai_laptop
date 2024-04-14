@@ -44,11 +44,13 @@ $products = $product->search($search);
 
 <div class="container mt-5 mb-5">
     <div class="row">
-    <h1 >Điện thoại :</h1>
-            <p class="mini-info border border-info"><?= count($products)?> sản phẩm</p>
+    <h1 >Sản phẩm tìm kiếm :</h1>
+            
+                <?php if(count($products)!=0 && $search !='')
+                {?>
+                <p class="mini-info border border-info"><?= count($products)?> sản phẩm</p>
             <div class="row">
-                <?php if(count($products)!=0)
-                {
+                <?php
                     foreach ($products as $row) {  
                         // Xác định đường dẫn của anh
                         $imagePath = isset($row->anh) ? html_escape($row->anh) : '';
@@ -86,7 +88,8 @@ $products = $product->search($search);
                             
                         
                         }
-                } else echo'<h4 class="pb-2 mb-4 text-danger border-bottom border-danger">Không tìm thấy sản phẩm nào!</h4>';
+                } else if($search=='') echo'<h4 class="pb-2 mb-4 text-danger border-bottom border-danger">Vui lòng nhập từ khóa cần tìm!</h4>';
+                    else echo '<h4 class="pb-2 mb-4 text-danger border-bottom border-danger">Không tìm thấy sản phẩm nào!</h4>';
                  ?>
                  
             </div>
