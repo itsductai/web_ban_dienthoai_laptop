@@ -7,7 +7,7 @@ CREATE TABLE san_pham (
     ten_san_pham VARCHAR(255),
     mo_ta TEXT,
     gia DECIMAL(10, 2),
-    so_luonh INT,
+    so_luong INT,
     anh VARCHAR(255),
     danh_muc_id INT,
     FOREIGN KEY (danh_muc_id) REFERENCES danh_muc(danh_muc_id)
