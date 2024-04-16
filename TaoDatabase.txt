@@ -38,7 +38,9 @@ CREATE TABLE chi_tiet_don_hang (
     FOREIGN KEY (san_pham_id) REFERENCES san_pham(san_pham_id)
 );
 
-<<<<<<< HEAD
+
+//đăng ký tài khoản dành cho admin
+INSERT INTO thanh_vien VALUES (1,'admin','admin123','CTU@gmail.com','CITCTU','098765');
 
 INSERT INTO danh_muc VALUES (1, 'Điện thoại'),( 2, 'Máy tính');
 
